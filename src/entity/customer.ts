@@ -1,8 +1,10 @@
-class Customer {
+import { Address } from "./address";
+
+export class Customer {
     _id: string;
     _name: string;
-    _address: string = "";
-    _actove: boolean = true;
+    _address!: Address;
+    _active: boolean = true;
 
     constructor(id: string, name: string) {
         this._id = id;
@@ -11,7 +13,7 @@ class Customer {
         this.validate();
     }
 
-    validate() {    
+    validate() {
         if (!this._name) {
             throw new Error("Name is required");
         }
@@ -30,10 +32,10 @@ class Customer {
         if (!this._address) {
             throw new Error("Address is mandatory to activate the customer");
         }
-        this._actove = true;
+        this._active = true;
     }
 
     deactivate() {
-        this._actove = false;
+        this._active = false;
     }
 }
