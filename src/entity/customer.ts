@@ -38,4 +38,8 @@ export class Customer {
     deactivate() {
         this._active = false;
     }
+
+    set Address(address: Address) {
+        this._address = address;
+    }
 }
