@@ -20,6 +20,14 @@ export class Order {
             throw new Error("ID is required");
         }
 
+        if (!this._customerId) {
+            throw new Error("Customer ID is required");
+        }
+
+        if (!this._items || this._items.length === 0) {
+            throw new Error("Items quantity should be greater than 0");
+        }
+
         return true;
     }
 
