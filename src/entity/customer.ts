@@ -1,10 +1,10 @@
 import { Address } from "./address";
 
 export class Customer {
-    _id: string;
-    _name: string;
-    _address!: Address;
-    _active: boolean = true;
+    private _id: string;
+    private _name: string;
+    private _address!: Address;
+    private _active: boolean = true;
 
     constructor(id: string, name: string) {
         this._id = id;
@@ -13,13 +13,21 @@ export class Customer {
         this.validate();
     }
 
-    validate() {
-        if (!this._name) {
-            throw new Error("Name is required");
-        }
+    get name() {
+        return this._name;
+    }
 
+    set Address(address: Address) {
+        this._address = address;
+    }
+
+    validate() {
         if (!this._id) {
             throw new Error("ID is required");
+        }
+
+        if (!this._name) {
+            throw new Error("Name is required");
         }
     }
 
@@ -39,7 +47,7 @@ export class Customer {
         this._active = false;
     }
 
-    set Address(address: Address) {
-        this._address = address;
+    isActive() {
+        return this._active;
     }
 }
