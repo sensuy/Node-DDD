@@ -1,5 +1,5 @@
 import { Order } from "./order";
-import { OrderItem } from "./order_item";
+import { OrderItem } from "./orderItem";
 
 describe('Order unit tests', () => {
 
@@ -41,18 +41,30 @@ describe('Order unit tests', () => {
         const id = '123';
         const customerId = '123';
         const items: OrderItem[] = [
-            new OrderItem('123', '123', 10),
-            new OrderItem('123', '123', 20),
-            new OrderItem('123', '123', 30),
+            new OrderItem('1', 'Product 1', 10, 'productId1', 1),
+            new OrderItem('2', 'Product 2', 20, 'productId2', 2),
+            new OrderItem('3', 'Product 3', 30, 'productId3', 3)
+            
         ];
 
         // Act
         const order = new Order(id, customerId, items);
 
         // Assert
-        expect(order.total).toBe(60);
+        expect(order.total()).toBe(140);
     });
 
-    
+    it('should throw error if item quantity is less than 0', () => {
+        // Arrange
+        const id = '123';
+        const customerId = '123';
+        const items: OrderItem[] = [
+            new OrderItem('1', 'Product 1', 10, 'productId1', -1)
+        ];
+
+        // Act
+        // Assert
+        expect(() => new Order(id, customerId, items)).toThrow('Item quantity should be greater than 0');
+    });
 
 });

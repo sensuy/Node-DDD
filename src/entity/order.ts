@@ -1,4 +1,4 @@
-import { OrderItem } from "./order_item";
+import { OrderItem } from "./orderItem";
 
 export class Order {
     private _id: string;
@@ -28,10 +28,14 @@ export class Order {
             throw new Error("Items quantity should be greater than 0");
         }
 
+        if (this._items.some(item => item.quantity <= 0)) {
+            throw new Error("Item quantity should be greater than 0");
+        }
+
         return true;
     }
 
     total() {
-        return this._items.reduce((acc, item) => acc + item._price, 0);
+        return this._items.reduce((acc, item) => acc + item.price, 0);
     }
 }
