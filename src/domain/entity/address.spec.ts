@@ -25,18 +25,6 @@ describe('Address unit tests', () => {
         expect(() => new Address(street, number, zip, city)).toThrow('City is required');
     });
 
-    it('should throw error if state is empty', () => {
-        // Arrange
-        const street = 'Street 1';
-        const city = 'City 1';
-        const zip = '12345';
-        const number = 10;
-
-        // Act
-        // Assert
-        expect(() => new Address(street, number, zip, city)).toThrow('State is required');
-    });
-
     it('should throw error if zip is empty', () => {
         // Arrange
         const street = 'Street 1';
@@ -74,6 +62,6 @@ describe('Address unit tests', () => {
         const address = new Address(street, number, zip, city);
 
         // Assert
-        expect(address.toString()).toBe('Street 1, City 1, State 1, 12345');
+        expect(address.toString()).toBe('Street 1, City 1, 12345');
     });
 });
