@@ -40,9 +40,8 @@ describe('Customer unit tests', () => {
         const id = '123';
         const name = 'John Doe';
         const customer = new Customer(id, name);
-
         // Act
-        const address = new Address('123 Main St', 'Springfield', 'IL', '62701', 123);
+        const address = new Address('123 Main St', 123, '62701', 'Springfield');
         customer.Address = address;
         customer.activate();
 
@@ -79,19 +78,19 @@ describe('Customer unit tests', () => {
         const id = '123';
         const name = 'John Doe';
         const customer = new Customer(id, name);
-        expect(customer.rewardsPoints).toBe(0);
+        expect(customer.rewardPoints).toBe(0);
 
         // Act
-        customer.addRewardsPoints(10);
+        customer.addRewardPoints(10);
 
         // Assert
-        expect(customer.rewardsPoints).toBe(10);
+        expect(customer.rewardPoints).toBe(10);
 
         // Act
-        customer.addRewardsPoints(20);
+        customer.addRewardPoints(20);
 
         // Assert
-        expect(customer.rewardsPoints).toBe(30);
+        expect(customer.rewardPoints).toBe(30);
     });
 
 });

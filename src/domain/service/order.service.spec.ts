@@ -14,7 +14,7 @@ describe("Order Service unit test", () => {
         const order = OrderService.placeOrder(customer, [item1]);
 
         // Assert
-        expect(customer.rewardsPoints).toBe(5);
+        expect(customer.rewardPoints).toBe(5);
         expect(order.total()).toBe(10);
     });
 
