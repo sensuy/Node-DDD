@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 import { ProductInterface } from "./product.interface";
 
 export class Product implements ProductInterface {
-=======
-
-export class Product {
->>>>>>> 33c85b2aeefc46a13dbfa56b5a19f62017fb55f9
     private _id: string;
     private _name: string;
     private _price: number;
